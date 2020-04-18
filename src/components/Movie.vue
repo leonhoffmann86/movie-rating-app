@@ -29,11 +29,6 @@ export default {
   data() {
     return { movie: [], rating: 0.0 };
   },
-  watch: {
-    rating(newVal) {
-      this.state.note = newVal;
-    },
-  },
   mounted() {
     this.fetchMovie();
   },
