@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../components/Home.vue";
 import Contact from "../components/Contact.vue";
 import AddMovie from "@/components/AddMovie";
+import Movie from "@/components/Movie";
 
 Vue.use(VueRouter);
 
@@ -24,6 +25,11 @@ const routes = [
     name: "AddMovie",
     // eslint-disable-next-line prettier/prettier
     component: AddMovie,
+  },
+  {
+    path: "/movies/:id",
+    name: "Movie",
+    component: Movie,
   },
 ];
 

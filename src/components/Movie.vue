@@ -10,7 +10,11 @@
             >
           </div>
         </v-card-title>
-        <h6 class="card-title">Rate this movie</h6>
+        <v-rating
+          v-model="rating"
+          background-color="orange lighten-3"
+          color="orange"
+        ></v-rating>
         <v-card-text>
           {{ movie.description }}
         </v-card-text>
@@ -23,7 +27,12 @@ import axios from "axios";
 export default {
   name: "Movie",
   data() {
-    return { movie: [] };
+    return { movie: [], rating: 0.0 };
+  },
+  watch: {
+    rating(newVal) {
+      this.state.note = newVal;
+    },
   },
   mounted() {
     this.fetchMovie();
@@ -32,7 +41,7 @@ export default {
     async fetchMovie() {
       return axios({
         method: "get",
-        url: `http://localhost:8081/api/movies/${this.$route.params.id}`,
+        url: `http://localhost:8081/movies/${this.$route.params.id}`,
       })
         .then((response) => {
           this.movie = response.data;

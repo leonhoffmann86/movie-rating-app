@@ -12,8 +12,12 @@
         </v-card-title>
         <v-card-text>{{ movie.description }}</v-card-text>
         <v-card-actions>
-          <v-btn text color="purple">Rate this movie</v-btn>
-          <v-btn text v-bind:to="`/movies/${movie.name}`">More info</v-btn>
+          <v-rating
+            v-model="rating"
+            background-color="orange lighten-3"
+            color="orange"
+          ></v-rating>
+          <v-btn text v-bind:to="`/movies/${movie._id}`">More info</v-btn>
           <v-spacer></v-spacer>
         </v-card-actions>
       </v-card>
@@ -29,6 +33,7 @@ export default {
   data() {
     return {
       movies: [],
+      rating: 0.0,
     };
   },
   mounted() {

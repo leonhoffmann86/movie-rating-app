@@ -22,7 +22,9 @@
     </v-navigation-drawer>
     <v-toolbar color="indigo" dark fixed>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>Home</v-toolbar-title>
+      <router-link v-bind:to="{ name: 'Home' }" class="side_bar_link">
+        <v-toolbar-title color="white">Home</v-toolbar-title>
+      </router-link>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
         <v-btn text v-bind:to="{ name: 'AddMovie' }">Add Movie</v-btn>
